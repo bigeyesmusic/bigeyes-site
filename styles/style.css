@@ -1,0 +1,811 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --transition-duration: 0.3s; /* Duração da transição */
+    --transition-timing: ease; /* Função de temporização */
+    --text-color: #ffffff; /* Branco */
+    --background-color: #000000; /* Fundo escuro */
+}
+
+/* Estilos gerais */
+body {
+    font-size: 16px;
+    font-family: 'Encode Sans Expanded', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* Header */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 5%;
+    color: var(--text-color);
+}
+
+/* Logo */
+header .logo img {
+    width: 120px;
+    height: auto;
+    transition: transform var(--transition-duration) var(--transition-timing);
+}
+
+header .logo img:hover {
+    transform: scale(1.1);
+}
+
+/* Menu */
+.menu-container {
+    border: 1px solid var(--text-color);
+    border-radius: 50px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+}
+
+/* Navbar */
+header .navbar ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 60px;
+}
+
+header .navbar ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 14px;
+    font-weight: 200;
+    transition: transform var(--transition-duration) var(--transition-timing), color var(--transition-duration) var(--transition-timing);
+    display: inline-block;
+}
+
+header .navbar ul li a:hover {
+    transform: scale(1.1);
+}
+
+/* Ícones sociais */
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.social-icons a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 24px;
+    transition: transform var(--transition-duration) var(--transition-timing), color var(--transition-duration) var(--transition-timing);
+}
+
+.social-icons a:hover {
+    transform: scale(1.5);
+}
+
+
+/* Oculta o ícone do hambúrguer em telas maiores */
+.hamburguer {
+    display: none; /* Oculta o ícone do hambúrguer */
+
+}
+
+/* Seção de imagem e texto */
+.home-section {
+    min-height: 86dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 5%; /* Padding superior zerado */
+    
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.image-container img {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+}
+
+.text-container {
+    flex: 1;
+}
+
+.text-container h2 {
+    font-size: 2.5rem;
+    margin-top: 0;
+    color: var(--text-color);
+}
+
+.text-container p {
+    text-align: justify;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    font-weight: 100;
+    margin-bottom: 20px;
+    white-space: pre-line;
+}
+
+
+
+/* Seção Quem Somos */
+.about-section {
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 5%; /* Padding superior  */
+    background-color: #7D4E24;
+}
+
+.about-section .container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    margin-top: 0;
+    color: var(--text-color);
+}
+
+.about-text p {
+    text-align: justify;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    font-weight: 100;
+    margin-bottom: 20px;
+}
+
+.about-image img {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.catalogo-section {
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 5%;
+    background-color: #000000; /* Fundo marrom */
+}
+
+.catalogo-section .container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.catalogo-text {
+    flex: 1;
+}
+
+.catalogo-text h2 {
+    font-size: 2.5rem;
+    margin-top: 0;
+    color: var(--text-color);
+}
+
+.catalogo-text p {
+    text-align: justify;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    font-weight: 100;
+    margin-bottom: 20px;
+}
+
+/* Estilos do Slider */
+.catalogo-slider {
+    position: relative;
+    width: 100%;
+    max-width: 500px; /* Largura máxima do slider */
+    overflow: hidden;
+    border-radius: 10px; /* Bordas arredondadas */
+}
+
+.slider-container {
+    display: flex;
+    transition: transform 0.5s ease; /* Transição suave entre slides */
+}
+
+.slide {
+    min-width: 100%; /* Cada slide ocupa 100% do container */
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.slide-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+    color: var(--text-color);
+    padding: 15px;
+    text-align: center;
+}
+
+.slide-text h3 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.slide-text p {
+    font-size: 0.7rem;
+    margin: 5px 0 0;
+}
+
+/* Botões de navegação do slider */
+.slider-prev,
+.slider-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    color: var(--text-color);
+    border: 0;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 26px;
+    z-index: 10;
+}
+
+.slider-prev {
+    left: 10px;
+}
+
+.slider-next {
+    right: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .catalogo-section .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .catalogo-text h2 {
+        font-size: 2rem;
+    }
+
+    .catalogo-text p {
+        font-size: 1rem;
+    }
+
+    .catalogo-slider {
+        max-width: 100%; /* Slider ocupa toda a largura em telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    .catalogo-text h2 {
+        font-size: 1.8rem;
+    }
+
+    .catalogo-text p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Responsividade */
+@media (max-width: 991px) {
+
+    /* Oculta o menu e os ícones sociais em telas menores */
+    .menu-container {
+        display: none;
+    }
+
+    .social-icons{
+        display:none;
+    }
+
+    /* Exibe o ícone do hambúrguer em telas menores */
+    .hamburguer {
+        display: block; /* Exibe o ícone do hambúrguer */
+        cursor: pointer;
+        font-size: 24px;
+    }
+
+    /* Estilo do menu ativo em telas menores */
+    .menu-container.active {
+        display: block;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: var(--background-color);
+        padding: 20px;
+        box-sizing: border-box;
+        border: none;
+    }
+
+    /* Alinha os itens do menu verticalmente */
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .image-container img {
+        max-width: 70%;
+    }
+
+    .text-container h2 {
+        font-size: 1.8rem;
+        text-align: justify;
+    }
+
+    .text-container p {
+        font-size: 1rem;
+    }
+
+    .about-section .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .about-image img {
+        max-width: 80%;
+    }
+
+    .about-text h2 {
+        font-size: 2rem;
+    }
+
+    .about-text p {
+        font-size: 1rem;
+        text-align: justify;
+    }
+}
+
+@media (max-width: 480px) {
+    
+    .about-image img {
+        max-width: 90%;
+    }
+
+    .about-text h2 {
+        font-size: 1.8rem;
+    }
+
+    .about-text p {
+        font-size: 0.9rem;
+    }
+}
+
+
+.catalog-section {
+    padding: 50px 5%;
+    text-align: center; /* Centraliza o conteúdo horizontalmente */
+    background-color: var(--background-color);
+    
+}
+
+.catalog-section h2 {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin: 0 auto 30px; /* Centraliza o título e adiciona margem inferior */
+    width: fit-content; /* Ajusta a largura ao conteúdo do título */
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px; /* Limita a largura máxima da grade */
+    margin: 0 auto; /* Centraliza a grade horizontalmente */
+}
+
+.catalog-card {
+    background:#7D4E24;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform var(--transition-duration) var(--transition-timing);
+}
+
+.catalog-card:hover {
+    transform: translateY(-10px);
+}
+
+.catalog-card img {
+    width: 100%;
+    height: auto;
+}
+
+.card-title {
+    display: block;
+    font-size: 1.5em;
+    margin: 15px 0;
+    color: #333;
+    text-decoration: none;
+    transition: color var(--transition-duration) var(--transition-timing);
+}
+
+.card-title:hover {
+    color: #007bff;
+}
+
+.catalog-card p {
+    padding: 0 15px 15px;
+    color: #666;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .catalog-section h2 {
+        font-size: 2rem;
+    }
+
+    .catalog-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .card-title {
+        font-size: 1.3em;
+    }
+
+    .catalog-card p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .catalog-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .catalog-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 5px;
+    }
+
+    .card-title {
+        font-size: 1.2em;
+    }
+
+    .catalog-card p {
+        font-size: 0.8rem;
+    }
+}
+
+/* Botão de Scroll to Top */
+#scrollToTopBtn {
+    display: none; /* Oculta o botão por padrão */
+    background-color: transparent; /* Fundo transparente */
+    position: fixed; /* Posicionamento fixo na tela */
+    bottom: 20px; /* Distância do fundo da tela */
+    right: 20px; /* Distância da direita da tela */
+    color: var(--text-color); /* Cor do texto (usando variável CSS) */
+    border: none; /* Remove a borda */
+    font-size: 24px; /* Tamanho do ícone */
+    cursor: pointer; /* Muda o cursor para pointer ao passar o mouse */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transições suaves */
+    z-index: 1000; /* Garante que o botão fique acima de outros elementos */
+}
+
+/* Efeito ao passar o mouse sobre o botão */
+#scrollToTopBtn:hover {
+    transform: scale(1.1); /* Aumenta ligeiramente o tamanho do botão */
+}
+
+/* Classe que exibe o botão quando adicionada */
+#scrollToTopBtn.show {
+    display: block; /* Torna o botão visível */
+}
+
+/* Responsividade para telas com largura máxima de 768px (tablets) */
+@media (max-width: 768px) {
+    #scrollToTopBtn {
+        width: 60px; /* Aumenta a largura do botão */
+        height: 60px; /* Aumenta a altura do botão */
+        font-size: 20px; /* Reduz o tamanho do ícone */
+        bottom: 20px; /* Ajusta a distância do fundo */
+        right: 20px; /* Ajusta a distância da direita */
+    }
+}
+
+/* Responsividade para telas com largura máxima de 480px (celulares) */
+@media (max-width: 480px) {
+    #scrollToTopBtn {
+        width: 50px; /* Reduz a largura do botão */
+        height: 50px; /* Reduz a altura do botão */
+        font-size: 20px; /* Mantém o tamanho do ícone */
+        bottom: 30px; /* Aumenta a distância do fundo */
+        right: 25px; /* Ajusta a distância da direita */
+    }
+}
+
+/* Seção de Contato */
+.contact-section {
+    padding: 60px;
+    background-color: #7D4E24; /* Fundo marrom */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px; /* Espaçamento entre o formulário e o texto */
+}
+
+/* Lado Esquerdo: Formulário */
+.contact-form-wrapper {
+    flex: 1;
+    max-width: 500px;
+}
+
+.contact-form-wrapper h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 1rem;
+    font-weight: 100;
+    color: var(--text-color);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    background-color: transparent;
+    color: var(--text-color);
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #ffffff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.submit-btn {
+    padding: 12px 30px;
+    font-weight: 100;
+    font-size: 0.8rem;
+    color: var(--text-color);
+    background-color: transparent;
+    border: 2px solid var(--text-color);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: var(--text-color);
+    color: #7D4E24;
+    transform: scale(1.05);
+}
+
+/* Lado Direito: Informações de Contato */
+.contact-info {
+    flex: 1;
+    max-width: 500px;
+}
+
+.contact-info h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.contact-info p {
+    font-weight: 100;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin-bottom: 30px;
+}
+
+.contact-details .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.contact-details .contact-item i {
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+.contact-details .contact-item p {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-form-wrapper,
+    .contact-info {
+        max-width: 100%;
+    }
+
+    .contact-info {
+        text-align: center;
+    }
+
+    .contact-details .contact-item {
+        justify-content: center;
+    }
+
+  
+}
+
+/* Estilos do Footer */
+.footer {
+    background-color: #000000; /* Fundo escuro */
+    color: var(--text-color); /* Texto branco */
+    padding: 40px 5%;
+    border-top: 1px solid #7D4E24; /* Linha superior marrom */
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 25%; /* Aumentei o espaçamento entre as colunas */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-column {
+    flex: 1;
+}
+
+.footer-logo {
+    width: 120px;
+    height: auto;
+    margin-top: 40%;
+}
+
+
+
+.footer-title {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: 100;
+    transition: color var(--transition-duration) var(--transition-timing);
+}
+
+.footer-links a:hover {
+    color: #7D4E24; /* Cor marrom ao passar o mouse */
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    transition: transform var(--transition-duration) var(--transition-timing), color var(--transition-duration) var(--transition-timing);
+}
+
+.social-icons a:hover {
+    transform: scale(1.2); /* Aumenta o ícone ao passar o mouse */
+    color: #7D4E24; /* Cor marrom ao passar o mouse */
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #7D4E24; /* Linha superior marrom */
+    font-size: 0.8rem;
+    color: var(--text-color);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .footer-logo {
+        margin: 0 auto 20px;
+    }
+
+    .social-icons {
+        display: none;
+        justify-content: center;
+    }
+}
