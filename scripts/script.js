@@ -3,18 +3,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuContainer = document.getElementById('menu-container');
     const hamburguer = document.getElementById('hamburguer');
 
-    hamburguer.addEventListener('click', () => {
-        const isActive = menuContainer.classList.toggle('active');
-        document.body.style.overflow = isActive ? 'hidden' : 'auto';
-        hamburguer.setAttribute('aria-expanded', isActive);
+    // Abrir/Fechar Menu Hamburguer
+    hamburguer.addEventListener('click', (e) => {
+        e.stopPropagation(); // Impede a propagação do clique
+        menuContainer.classList.toggle('active');
+        document.body.style.overflow = menuContainer.classList.contains('active') ? 'hidden' : 'auto'; // Bloqueia/libera o scroll da página
+        hamburguer.setAttribute('aria-expanded', menuContainer.classList.contains('active')); // Atualiza o estado do botão
     });
 
+    // Fechar Menu ao Clicar Fora
     document.addEventListener('click', (e) => {
         if (!e.target.closest('#menu-container') && !e.target.closest('#hamburguer')) {
             menuContainer.classList.remove('active');
-            document.body.style.overflow = 'auto';
-            hamburguer.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = 'auto'; // Libera o scroll da página
+            hamburguer.setAttribute('aria-expanded', 'false'); // Atualiza o estado do botão
         }
+    });
+
+    // Fechar Menu ao Clicar em um Link (Opcional)
+    const navbarLinks = document.querySelectorAll('.navbar a');
+    navbarLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menuContainer.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Libera o scroll da página
+            hamburguer.setAttribute('aria-expanded', 'false'); // Atualiza o estado do botão
+        });
     });
 
     // Scroll to Top
@@ -53,61 +66,51 @@ document.addEventListener('DOMContentLoaded', () => {
     // Scroll Suave para Links Âncora
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetSection = document.querySelector(this.getAttribute('href'));
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            e.preventDefault(); // Impede o comportamento padrão do link
+            const targetId = this.getAttribute('href'); // Pega o ID do alvo
+            const targetElement = document.querySelector(targetId); // Seleciona o elemento alvo
+
+            if (targetElement) {
+                // Calcula a posição do topo do elemento alvo
+                const headerHeight = document.querySelector('header').offsetHeight; // Altura do header
+                const offsetTop = targetElement.offsetTop - headerHeight; // Compensa a altura do header
+
+                // Rola a página até o topo do elemento alvo
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth' // Scroll suave
+                });
             }
         });
     });
-});
 
-document.querySelector('.contact-form').addEventListener('submit', function (e) {
-    e.preventDefault(); // Impede o envio padrão do formulário
+    // Envio do Formulário de Contato
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault(); // Impede o envio padrão do formulário
 
-    // Captura os dados do formulário
-    const formData = new FormData(this);
+            // Captura os dados do formulário
+            const formData = new FormData(this);
 
-    // Envia os dados via fetch
-    fetch('faleconosco.php', {
-        method: 'POST',
-        body: formData,
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.status === "success") {
-            alert(data.message); // Exibe mensagem de sucesso
-            this.reset(); // Limpa o formulário
-        } else {
-            alert(data.message); // Exibe mensagem de erro
-        }
-    })
-    .catch(error => {
-        console.error('Erro:', error);
-        alert('Ocorreu um erro ao enviar a mensagem.');
-    });
-});
-
-document.querySelector('.contact-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    const formData = new FormData(this);
-
-    fetch('faleconosco.php', {
-        method: 'POST',
-        body: formData,
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.status === "success") {
-            alert(data.message);
-            this.reset();
-        } else {
-            alert(data.message);
-        }
-    })
-    .catch(error => {
-        console.error('Erro:', error);
-        alert('Ocorreu um erro ao enviar a mensagem.');
-    });
+            // Envia os dados via fetch
+            fetch('faleconosco.php', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    alert(data.message); // Exibe mensagem de sucesso
+                    this.reset(); // Limpa o formulário
+                } else {
+                    alert(data.message); // Exibe mensagem de erro
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert('Ocorreu um erro ao enviar a mensagem.');
+            });
+        });
+    }
 });
